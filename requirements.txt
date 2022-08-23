@@ -1,0 +1,8 @@
+Flask
+Pillow
+pathlib
+pdf2image
+python-magic
+sanic
+sanic_openapi
+tesserocr

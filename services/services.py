@@ -10,6 +10,7 @@ swagger_blueprint.url_prefix = "/api"
 app.blueprint(swagger_blueprint)
 bp = Blueprint("default")
 
+
 @bp.post("/extract")
 @doc.consumes(doc.File(name="file"), location="formData", content_type="multipart/form-data", required=True)
 def test(request):
@@ -23,6 +24,8 @@ def test(request):
         return json(ret)
     return raw(ret)
 
+
 app.blueprint(bp)
 
-app.run("0.0.0.0", 9393)
+if __name__ == "__main__":
+    app.run("0.0.0.0", 9393)

@@ -1,3 +1,5 @@
+from os import environ
+
 from sanic import Sanic
 from sanic import Blueprint
 from sanic_openapi import swagger_blueprint, doc
@@ -28,4 +30,4 @@ def test(request):
 app.blueprint(bp)
 
 if __name__ == "__main__":
-    app.run("0.0.0.0", 9393)
+    app.run("0.0.0.0", environ.get("PORT", 8080))

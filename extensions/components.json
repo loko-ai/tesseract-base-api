@@ -3,11 +3,13 @@
     "name": "PyTessBaseAPI",
     "events": null,
     "group": "Custom",
-    "description": "",
+    "description": "A simple custom component to allow an alternative of Tesseract usage (based on PyTessBaseAPI)",
     "inputs": [
       {
         "id": "input",
-        "label": "input"
+        "label": "extract",
+        "service": "extract",
+        "to": "output"
       }
     ],
     "outputs": [

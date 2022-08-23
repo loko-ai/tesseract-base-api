@@ -1,17 +1,17 @@
 {
-  "name": "myproject",
-  "id": "myproject",
+  "name": "tesseract_base_api",
+  "id": "tesseract_base_api",
   "description": "",
   "created_on": "18/08/2022, 09:18:10",
-  "last_modify": "18/08/2022, 09:20:31",
+  "last_modify": "23/08/2022, 13:26:40",
   "graphs": {
     "main": {
       "nodes": [
         {
-          "id": "b5f8e120-4933-4e2c-b169-1e3b8a4e9ea3",
+          "id": "cf52be8c-27d4-422b-94db-36553f7345e8",
           "position": {
-            "x": 539,
-            "y": 162
+            "x": 583.825218911222,
+            "y": -43.74101394631094
           },
           "type": "custom",
           "dragHandle": "#nodeHandle",
@@ -19,16 +19,18 @@
           "targetPosition": "left",
           "width": 150,
           "height": 56,
-          "selected": null,
-          "dragging": null,
+          "selected": false,
+          "dragging": false,
           "data": {
-            "name": "Extensions",
+            "name": "PyTessBaseAPI",
             "events": null,
-            "description": "",
+            "description": "A simple custom component to allow an alternative of Tesseract usage (based on PyTessBaseAPI)",
             "inputs": [
               {
                 "id": "input",
-                "label": "input"
+                "label": "extract",
+                "service": "extract",
+                "to": "output"
               }
             ],
             "outputs": [
@@ -62,15 +64,141 @@
               ],
               "click": null,
               "icon": null,
-              "values": {}
-            }
+              "values": {
+                "comment": "",
+                "alias": "",
+                "debug": true
+              }
+            },
+            "locked": null
           },
           "selectable": true,
           "draggable": true,
+          "positionAbsolute": {
+            "x": 583.825218911222,
+            "y": -43.74101394631094
+          },
+          "__class__": "Node"
+        },
+        {
+          "id": "b0efd003-a353-43b7-b7fe-283d8692bbe0",
+          "position": {
+            "x": 261.2835678490153,
+            "y": -52.70050425359447
+          },
+          "type": "custom",
+          "dragHandle": "#nodeHandle",
+          "sourcePosition": "right",
+          "targetPosition": "left",
+          "width": 150,
+          "height": 56,
+          "selected": false,
+          "dragging": false,
+          "data": {
+            "name": "File Reader",
+            "events": null,
+            "description": "### Description\nThe FILE READER component allows the reading of individual files.\n\n### Output\nSetting the **Read Content** parameter to **False**, the output provides the file path in PosixPath format. The component will then need to be connected to other components to read the content, for example *LineReader*.\n\nOn the contrary, setting the **Read Content** parameter to **True**, you can choose whether to read the content in *Binary* format. This format will be selected for reading non-text files.",
+            "inputs": [
+              {
+                "id": "input",
+                "label": "input"
+              }
+            ],
+            "outputs": [
+              {
+                "id": "output",
+                "label": "output"
+              }
+            ],
+            "configured": true,
+            "options": {
+              "group": "Inputs",
+              "args": [
+                {
+                  "name": "comment",
+                  "type": "area",
+                  "label": "Node comment",
+                  "helper": "Use it to explain the usage of this node"
+                },
+                {
+                  "name": "alias",
+                  "type": "text",
+                  "label": "Name",
+                  "helper": "Use this name as an alias"
+                },
+                {
+                  "name": "debug",
+                  "type": "boolean",
+                  "label": "Debug to Console",
+                  "divider": true
+                },
+                {
+                  "name": "value",
+                  "type": "files",
+                  "label": "File",
+                  "fragment": "files",
+                  "validation": {
+                    "required": "Required field"
+                  }
+                },
+                {
+                  "name": "read_content",
+                  "type": "boolean",
+                  "label": "Read content"
+                },
+                {
+                  "name": "binary",
+                  "type": "dynamic",
+                  "label": "Binary",
+                  "dynamicType": {
+                    "true": "boolean"
+                  },
+                  "parent": "read_content"
+                }
+              ],
+              "click": "Send file",
+              "icon": "RiFileList3Fill",
+              "values": {
+                "comment": "",
+                "alias": "",
+                "debug": true,
+                "read_content": false,
+                "value": {
+                  "name": "2089405_CVD_108249.png",
+                  "path": "data/2089405_CVD_108249.png",
+                  "parent": "data",
+                  "isDir": false,
+                  "hidden": false
+                }
+              }
+            },
+            "locked": null
+          },
+          "selectable": true,
+          "draggable": true,
+          "positionAbsolute": {
+            "x": 261.2835678490153,
+            "y": -52.70050425359447
+          },
           "__class__": "Node"
         }
       ],
-      "edges": [],
+      "edges": [
+        {
+          "id": "reactflow__edge-b0efd003-a353-43b7-b7fe-283d8692bbe0output-cf52be8c-27d4-422b-94db-36553f7345e8input",
+          "source": "b0efd003-a353-43b7-b7fe-283d8692bbe0",
+          "sourceHandle": "output",
+          "target": "cf52be8c-27d4-422b-94db-36553f7345e8",
+          "targetHandle": "input",
+          "data": {
+            "startColor": "#F8637A",
+            "stopColor": "#888"
+          },
+          "selected": false,
+          "dragging": false,
+          "__class__": "Edge"
+        }
+      ],
       "__class__": "Graph"
     }
   },

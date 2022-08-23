@@ -15,7 +15,7 @@ bp = Blueprint("default")
 
 @bp.post("/extract")
 @doc.consumes(doc.File(name="file"), location="formData", content_type="multipart/form-data", required=True)
-def test(request):
+async def test(request):
     file = request.files.get('file')
     name = file.name
     content = file.body

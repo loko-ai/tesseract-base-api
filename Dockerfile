@@ -12,4 +12,5 @@ ADD . /plugin
 ENV PYTHONPATH=$PYTHONPATH:/plugin
 ENV LC_ALL=C
 WORKDIR /plugin/services
+EXPOSE 8080
 CMD python -m sanic services.app --host=0.0.0.0 --port=8080

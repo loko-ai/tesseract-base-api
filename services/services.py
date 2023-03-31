@@ -1,11 +1,21 @@
 from os import environ
 
+from loko_extensions.business.decorators import extract_value_args
+from loko_extensions.model.components import Component, Input, Output, save_extensions
 from sanic import Sanic
 from sanic import Blueprint
 from sanic_openapi import swagger_blueprint, doc
 from sanic.response import json, raw
 
 from business.ocr import OCR
+
+pyTess = Component('PyTessBaseAPI',
+                   inputs=[Input(id='input', label='extract', service='extract', to='output')],
+                   outputs=[Output(id='output')],
+                   description='A simple custom component to allow an alternative of Tesseract usage (based on PyTessBaseAPI)')
+
+
+save_extensions([pyTess])
 
 app = Sanic("PyTessBaseAPI")
 swagger_blueprint.url_prefix = "/api"
@@ -15,10 +25,9 @@ bp = Blueprint("default")
 
 @bp.post("/extract")
 @doc.consumes(doc.File(name="file"), location="formData", content_type="multipart/form-data", required=True)
-async def test(request):
-    file = request.files.get('file')
-    name = file.name
-    content = file.body
+@extract_value_args(file=True)
+async def test(file, args):
+    content = file[0].body
 
     ret = OCR(content)
 

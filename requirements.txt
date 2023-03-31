@@ -6,3 +6,4 @@ python-magic
 sanic
 sanic_openapi
 tesserocr
+loko-extensions

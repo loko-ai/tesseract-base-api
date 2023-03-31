@@ -4,8 +4,8 @@ RUN rm /usr/share/tesseract-ocr/4.00/tessdata/eng.traineddata
 RUN wget https://github.com/tesseract-ocr/tessdata/raw/main/eng.traineddata --directory-prefix=/usr/share/tesseract-ocr/4.00/tessdata
 RUN wget https://github.com/tesseract-ocr/tessdata/raw/main/ita.traineddata --directory-prefix=/usr/share/tesseract-ocr/4.00/tessdata
 RUN wget https://github.com/tesseract-ocr/tessdata/raw/main/spa.traineddata --directory-prefix=/usr/share/tesseract-ocr/4.00/tessdata
-ADD ./requirements.txt /
-RUN pip install -r /requirements.txt
+ADD ./requirements.lock /
+RUN pip install -r /requirements.lock
 ARG GATEWAY
 ENV GATEWAY=$GATEWAY
 ADD . /plugin

@@ -1,33 +1,29 @@
 [
-  {
-    "name": "PyTessBaseAPI",
-    "events": null,
-    "group": "Custom",
-    "description": "A simple custom component to allow an alternative of Tesseract usage (based on PyTessBaseAPI)",
-    "inputs": [
-      {
-        "id": "input",
-        "label": "extract",
-        "service": "extract",
-        "to": "output"
-      }
-    ],
-    "outputs": [
-      {
-        "id": "output",
-        "label": "output"
-      }
-    ],
-    "configured": true,
-    "options": {
-      "group": "Custom",
-      "args": [
-      ],
-      "click": null,
-      "icon": "RiTyphoonFill",
-      "values": {
-      }
-    },
-    "disabled": false
+ {
+  "name": "PyTessBaseAPI",
+  "description": "A simple custom component to allow an alternative of Tesseract usage (based on PyTessBaseAPI)",
+  "group": "Custom",
+  "icon": "RiCheckboxBlankCircleFill",
+  "click": null,
+  "events": null,
+  "configured": true,
+  "inputs": [
+   {
+    "id": "input",
+    "label": "extract",
+    "service": "extract",
+    "to": "output"
+   }
+  ],
+  "outputs": [
+   {
+    "id": "output",
+    "label": "output"
+   }
+  ],
+  "options": {
+   "values": {},
+   "args": []
   }
+ }
 ]
